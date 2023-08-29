@@ -11,6 +11,16 @@ function buscarUsuario(id){
     })
 }
 
+function removerUsuario(id) {
+    const indice =  listaDeUsuarios.findIndex(function(usuario){
+        return usuario.id == id
+    })
+    if(indice >= 0){
+        listaDeUsuarios.splice(indice, 1);
+    }
+    return listaDeUsuarios
+}
+
 function buscarUsuarios() {
     console.log(listaDeUsuarios)
     return listaDeUsuarios;
@@ -19,5 +29,6 @@ function buscarUsuarios() {
 module.exports  = {
     buscarUsuarios, 
     criarUsuario,
-    buscarUsuario
+    buscarUsuario,
+    removerUsuario
 }

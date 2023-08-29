@@ -1,5 +1,5 @@
 const express = require("express")
-const { criarUsuario, buscarUsuarios, buscarUsuario } = require("./service/userService")
+const { criarUsuario, buscarUsuarios, buscarUsuario, removerUsuario } = require("./service/userService")
 
 const porta = 3000;
 
@@ -17,6 +17,12 @@ app.get("/usuarios", function(req, response) {
 
 app.get("/usuario/:id", function(requisicao, resposta){    
     resposta.send(buscarUsuario(requisicao.params.id))
+})
+
+app.delete("/usuario/:id", function(requisicao, resposta) {
+    const id = requisicao.params.id;
+    removerUsuario(id)
+    resposta.status(200).send("sucesso")
 })
 
 /**
