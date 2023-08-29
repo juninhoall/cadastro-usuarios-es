@@ -37,3 +37,4 @@ app.listen(porta, function() {
     console.log("Testando servidor na porta 3000")
 })
 
+module.exports = app;
